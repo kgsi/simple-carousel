@@ -12,13 +12,6 @@ button {
   appearance: none;
 }
 
-h1 {
-  font-size: 2.4rem;
-  font-weight: bold;
-  text-align: center;
-  padding: 30px 0;
-}
-
 .carousel {
 
   // transform: scale(0.2);
@@ -27,16 +20,25 @@ h1 {
     margin: 0 auto;
     position: relative;
 
+    @include mq-down() {
+      width: 100%;
+    }
     &__slides {
       width: 768px;
       overflow: hidden;
       background: red;
-
+      @include mq-down() {
+        width: 100%;
+      }
+  
       &__inner {
         width: 768px;
         position: relative;
         transform: translateX(0);
-
+        @include mq-down() {
+          width: 100%;
+        }
+    
         ul {
           display: flex;
         }
@@ -78,12 +80,19 @@ h1 {
         &--next {
           right: -25px;
           top: calc(50% - 60px);
+
+          @include mq-down() {
+            right: 25px;
+          }
         }
 
         &--prev {
           left: -25px;
           transform: rotate(180deg);
           top: calc(50% - 60px);
+          @include mq-down() {
+            left: 25px;
+          }
         }
       }
     }

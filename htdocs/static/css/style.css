@@ -178,24 +178,27 @@ button {
   padding: 0;
   appearance: none; }
 
-h1 {
-  font-size: 2.4rem;
-  font-weight: bold;
-  text-align: center;
-  padding: 30px 0; }
-
 .carousel__wrapper {
   width: 768px;
   margin: 0 auto;
   position: relative; }
+  @media screen and (max-width: 767px) {
+    .carousel__wrapper {
+      width: 100%; } }
   .carousel__wrapper__slides {
     width: 768px;
     overflow: hidden;
     background: red; }
+    @media screen and (max-width: 767px) {
+      .carousel__wrapper__slides {
+        width: 100%; } }
     .carousel__wrapper__slides__inner {
       width: 768px;
       position: relative;
       transform: translateX(0); }
+      @media screen and (max-width: 767px) {
+        .carousel__wrapper__slides__inner {
+          width: 100%; } }
       .carousel__wrapper__slides__inner ul {
         display: flex; }
   .carousel__wrapper__arrows__arrow {
@@ -218,10 +221,16 @@ h1 {
     .carousel__wrapper__arrows__arrow--next {
       right: -25px;
       top: calc(50% - 60px); }
+      @media screen and (max-width: 767px) {
+        .carousel__wrapper__arrows__arrow--next {
+          right: 25px; } }
     .carousel__wrapper__arrows__arrow--prev {
       left: -25px;
       transform: rotate(180deg);
       top: calc(50% - 60px); }
+      @media screen and (max-width: 767px) {
+        .carousel__wrapper__arrows__arrow--prev {
+          left: 25px; } }
   .carousel__wrapper__dots {
     text-align: center;
     padding: 20px 0;
@@ -240,5 +249,15 @@ h1 {
       .carousel__wrapper__dots > button.is-active {
         background: red;
         color: white; }
+
+.p-index__hgroup {
+  text-align: center;
+  padding: 30px 0; }
+  .p-index__hgroup__title {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+    font-weight: bold; }
+  .p-index__hgroup__text {
+    font-size: 1.6rem; }
 
 /*# sourceMappingURL=style.css.map */
