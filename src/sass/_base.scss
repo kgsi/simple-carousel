@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.3rem;
+  color: map-get($colors, block);
+  font-family: $font-family-base;
+  font-feature-settings: "pwid"1;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: unset;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.is-noScroll {
+  overflow-y:auto;
+  height: 100%;
+
+  >body {
+    overflow-y:auto;
+    height: 100%;
+  }
+}

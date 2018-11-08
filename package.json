@@ -1,0 +1,36 @@
+{
+  "name": "simple-carousel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gsap": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.23.6",
+    "browserify": "^16.2.3",
+    "exorcist": "^1.0.1",
+    "fontfaceobserver": "^2.0.13",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.8.3",
+    "uglify-js": "^3.3.21",
+    "watchify": "^3.11.0"
+  },
+  "scripts": {
+    "build:sass": "node-sass ./src/sass/ --output ./htdocs/static/css --source-map true",
+    "watch:sass": "npm run build:sass -- --watch",
+    "build:js": "browserify -t babelify src/scripts/app.js -o htdocs/static/js/bundle.js -t [ babelify --presets [ @babel/preset-env ] | exorcist htdocs/static/js/bundle.js.map > htdocs/static/js/bundle.js",
+    "watch:js": "watchify --entry src/scripts/app.js --transform babelify -o 'exorcist htdocs/static/js/bundle.js.map > htdocs/static/js/bundle.js' --debug --verbose -t [ babelify --presets [ @babel/preset-env ]",
+    "uglify": "uglifyjs --compress warnings=false --mangle --output ./htdocs/static/js/bundle.min.js -- ./htdocs/static/js/bundle.js",
+    "serve": "browser-sync start --server ./htdocs/ --files='./htdocs/**/*.html, ./htdocs/**/*.php, ./htdocs/**/*.css, ./htdocs/**/*.js'",
+    "start": "npm run build:sass & npm run watch:sass & npm run watch:js & npm run serve",
+    "build": "npm run build:sass & npm run build:js ",
+    "precommit": "npm test",
+    "prepush": "npm test"
+  },
+  "author": "",
+  "license": "ISC"
+}

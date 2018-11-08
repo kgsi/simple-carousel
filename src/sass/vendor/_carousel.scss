@@ -1,0 +1,115 @@
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.carousel {
+
+  // transform: scale(0.2);
+  &__wrapper {
+    width: 768px;
+    margin: 0 auto;
+    position: relative;
+
+    &__slides {
+      width: 768px;
+      overflow: hidden;
+      background: red;
+
+      &__inner {
+        width: 768px;
+        position: relative;
+        transform: translateX(0);
+
+        ul {
+          display: flex;
+        }
+      }
+
+      // &::after {
+      // 	content: "";
+      // 	width: 768px;
+      // 	height: 300px;
+      // 	border: 5px solid red;
+      // 	display: block;
+      // 	position: absolute;
+      // 	left: -5px;
+      // 	top: -5px;
+      // }
+    }
+
+    &__arrows {
+      &__arrow {
+        position: absolute;
+        z-index: 100;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background: red;
+        display: block;
+        cursor: pointer;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        background: red url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M5%203l3.057-3%2011.943%2012-11.943%2012-3.057-3%209-9z%22%2F%3E%3C%2Fsvg%3E') no-repeat center center;
+
+        &.is-disable {
+          pointer-events: none;
+          background-color: #ccc;
+          opacity: 0.6;
+        }
+
+        &--next {
+          right: -25px;
+          top: calc(50% - 60px);
+        }
+
+        &--prev {
+          left: -25px;
+          transform: rotate(180deg);
+          top: calc(50% - 60px);
+        }
+      }
+    }
+
+    &__dots {
+      text-align: center;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+
+      >button {
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        background: #ccc;
+        vertical-align: center;
+
+        &.is-active {
+          background: red;
+          color: white;
+        }
+      }
+    }
+  }
+}
